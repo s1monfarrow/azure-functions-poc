@@ -1,0 +1,26 @@
+﻿{
+    "bindings": [
+      {
+        "type": "httpTrigger",
+        "direction": "in",
+        "name": "req",
+        "methods": [
+          "get"
+        ],
+        "route": "events/{eventid:string}"
+      },
+      {
+          "type": "http",
+          "direction": "out",
+          "name": "res"
+      },
+      {
+        "type": "table",
+        "name": "inTable",
+        "tableName": "business-event",
+        "connection": "TABLE_STORAGE_ACCT_APP_SETTING",
+        "direction": "in"
+      }
+    ],
+    "disabled": false
+}

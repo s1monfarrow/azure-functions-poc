@@ -1,0 +1,19 @@
+﻿{
+    "disabled": false,
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "business-event-queue",
+      "connection": "STORAGE_ACCT_APP_SETTING"
+    },
+    {
+      "name": "detailedBusinessEvent",
+      "type": "queue",
+      "direction": "out",
+      "queueName": "detailed-business-event-queue",
+      "connection": "STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    },
+    {
+      "type": "table",
+      "name": "outTable",
+      "tableName": "business-event",
+      "connection": "TABLE_STORAGE_ACCT_APP_SETTING",
+      "direction": "out"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "outQueue",
+      "queueName": "business-event-queue",
+      "connection": "STORAGE_ACCT_APP_SETTING"
+    }
+  ]
+}
