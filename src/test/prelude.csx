@@ -19,3 +19,19 @@ public ICollector<T> MocCollector<T>(List<T> storage)
 }
 
 var timer = new TimerInfo(new CronSchedule("0 */5 * * * *"));
+
+//Might be worth extending this instead of mocking
+public class FakeHttp<T> : IHttp
+{
+    T result;
+
+    public FakeHttp(T obj)
+    {
+        result = obj;
+    }
+
+    public TRes Get<TRes>(string url) where TRes : class, new()
+    {
+        return result as TRes;
+    }
+}

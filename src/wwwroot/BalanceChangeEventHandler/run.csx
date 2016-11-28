@@ -1,7 +1,11 @@
 #r "Newtonsoft.Json"
+#load "../utils/http.csx"
+#load "../shared.csx"
 
 using System;
 using Newtonsoft.Json;
+
+static IHttp http = new Http();
 
 public class DetailedBusinessEvent
 {
@@ -19,14 +23,19 @@ public static void Run(
 {
     log.Info($"C# Queue trigger function processed: {queueItem}");
 
-    dynamic order = JsonConvert.DeserializeObject(queueItem);
+    var balanceChangeEvent = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
 
-    //TODO:go fetch the account info
+    var response = http.Get<BalanceChangeEventResource>(balanceChangeEvent.EventUri);
+    
+    //var response = balanceChangeEvent.EventUri;
+    //TODO:go fetch the event info
+
+
 
     //TODO:glue them together and return an event
 
     detailedBusinessEvent = new DetailedBusinessEvent
     {
-        SourceEventUri = order.EventUri
+        SourceEventUri = balanceChangeEvent.EventUri
     };
 }

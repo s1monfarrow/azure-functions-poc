@@ -20,12 +20,12 @@ public static async Task<HttpResponseMessage> Run(
     if (eve == null)
         return await Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound));
     
-    var mes = new
+    var res = new BalanceChangeEventResource
     {
         AccountUri = string.Format(accountUriTemplate, eve.AccountId),
-        @event = eve
+        Event = eve
     };
 
-    var res = req.CreateResponse(HttpStatusCode.OK, mes);
+    var res = req.CreateResponse(HttpStatusCode.OK, res);
     return await Task.FromResult(res);
 }

@@ -1,3 +1,4 @@
+#load "utils/current.csx"
 using System;
 
 public static string accountUriTemplate = "http://account/{0}";
@@ -23,4 +24,11 @@ public class BalanceChangedEvent
 public class BalanceChangedEventMessage
 {
     public string EventUri { get; set; }
+}
+
+
+public class BalanceChangeEventResource
+{
+    public string AccountUri { get; set; }
+    public BalanceChangedEvent Event { get; set; }
 }
