@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Microsoft.Azure.WebJobs.Extensions;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.Timers;
@@ -21,17 +22,18 @@ public ICollector<T> MocCollector<T>(List<T> storage)
 var timer = new TimerInfo(new CronSchedule("0 */5 * * * *"));
 
 //Might be worth extending this instead of mocking
-public class FakeHttp<T> : IHttp
+public class FakeHttp : IHttp
 {
-    T result;
-
-    public FakeHttp(T obj)
-    {
-        result = obj;
-    }
-
+    private IDictionary results = new Dictionary<string, object>();
+    
     public TRes Get<TRes>(string url) where TRes : class, new()
     {
-        return result as TRes;
+        return results[url] as TRes;  
+    }
+
+    public FakeHttp Add(string uri, object result)
+    {
+        results.Add(uri, result);
+        return this;
     }
 }

@@ -19,10 +19,10 @@ public static async Task<HttpResponseMessage> Run(
     if (!events.Any())
         return await Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound));
 
-    var acc = new
+    var acc = new AccountResource
     {
-        @self = string.Format(accountUriTemplate, accountid),
-        balance = events.Sum(e => e.Amount)
+        Self = string.Format(accountUriTemplate, accountid),
+        Balance = events.Sum(e => e.Amount)
     };
 
     var res = req.CreateResponse(HttpStatusCode.OK, acc);

@@ -23,19 +23,18 @@ public static void Run(
 {
     log.Info($"C# Queue trigger function processed: {queueItem}");
 
-    var balanceChangeEvent = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
-
-    var response = http.Get<BalanceChangeEventResource>(balanceChangeEvent.EventUri);
+    var balanceChangeMessage = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
     
-    //var response = balanceChangeEvent.EventUri;
-    //TODO:go fetch the event info
+    var eventResource = http.Get<BalanceChangeEventResource>(balanceChangeMessage.EventUri);
 
-
-
-    //TODO:glue them together and return an event
+    var accountResource = http.Get<AccountResource>(eventResource.AccountUri);
 
     detailedBusinessEvent = new DetailedBusinessEvent
     {
-        SourceEventUri = balanceChangeEvent.EventUri
+        When = eventResource.Event.Timestamp,
+        AccountId = eventResource.Event.AccountId,
+        Amount = eventResource.Event.Amount,
+        Balance = accountResource.Balance,
+        SourceEventUri = balanceChangeMessage.EventUri
     };
 }

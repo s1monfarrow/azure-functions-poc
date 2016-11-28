@@ -32,3 +32,9 @@ public class BalanceChangeEventResource
     public string AccountUri { get; set; }
     public BalanceChangedEvent Event { get; set; }
 }
+
+public class AccountResource
+{
+    public string Self { get; set; }
+    public decimal Balance { get; set; }
+}
