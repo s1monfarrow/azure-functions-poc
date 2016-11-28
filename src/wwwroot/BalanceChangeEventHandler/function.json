@@ -2,7 +2,7 @@
     "disabled": false,
   "bindings": [
     {
-      "name": "myQueueItem",
+      "name": "queueItem",
       "type": "queueTrigger",
       "direction": "in",
       "queueName": "business-event-queue",
@@ -12,7 +12,7 @@
       "name": "detailedBusinessEvent",
       "type": "queue",
       "direction": "out",
-      "queueName": "detailed-business-event-queue",
+      "queueName": "staging-event-queue",
       "connection": "STORAGE_ACCT_APP_SETTING"
     }
   ]

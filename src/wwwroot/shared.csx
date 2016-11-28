@@ -38,3 +38,27 @@ public class AccountResource
     public string Self { get; set; }
     public decimal Balance { get; set; }
 }
+
+public class DetailedBusinessEvent
+{
+    public DateTime Timestamp { get; set; }
+    public string AccountId { get; set; }
+    public decimal Amount { get; set; }
+    public decimal Balance { get; set; }
+    public string SourceEventUri { get; set; }
+}
+
+public class StagedDetailedBusinessEvent : DetailedBusinessEvent
+{
+    public StagedDetailedBusinessEvent(DetailedBusinessEvent eve)
+    {
+        Timestamp = eve.Timestamp;
+        AccountId = eve.AccountId;
+        Amount = eve.Amount;
+        Balance = eve.Balance;
+        SourceEventUri = eve.SourceEventUri;
+    }
+
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+}
