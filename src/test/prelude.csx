@@ -1,3 +1,5 @@
+#load "../wwwroot/utils/http.csx"
+
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Azure.WebJobs.Extensions;

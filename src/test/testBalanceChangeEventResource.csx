@@ -33,4 +33,4 @@ res = Run(req, id, table, log).Result;
 // Assert
 fa.Should(res.StatusCode.ToString()).Be(HttpStatusCode.OK.ToString());
 fa.Should(res.Content.ReadAsStringAsync().Result)
-    .Be("{\"AccountUri\":\"http://account/123\",\"event\":{\"Timestamp\":\"2020-01-01T00:00:00\",\"AccountId\":\"123\",\"Amount\":3.0,\"PartitionKey\":\"test\",\"RowKey\":\"00000000-0000-0000-0000-000000000000\"}}");
+    .Be("{\"AccountUri\":\"http://account/123\",\"Event\":{\"Timestamp\":\"2020-01-01T00:00:00\",\"AccountId\":\"123\",\"Amount\":3.0,\"PartitionKey\":\"test\",\"RowKey\":\"00000000-0000-0000-0000-000000000000\"}}");

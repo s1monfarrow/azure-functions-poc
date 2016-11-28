@@ -30,4 +30,4 @@ res = Run(req, "123", table, log).Result;
 // Assert
 fa.Should(res.StatusCode.ToString()).Be(HttpStatusCode.OK.ToString());
 fa.Should(res.Content.ReadAsStringAsync().Result)
-    .Be("{\"self\":\"http://account/123\",\"balance\":6.0}");
+    .Be("{\"Self\":\"http://account/123\",\"Balance\":6.0}");
