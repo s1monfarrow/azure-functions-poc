@@ -4,6 +4,7 @@
 
 using Microsoft.WindowsAzure.Storage.Table;
 using System.Net;
+using System.Collections;
 
 public static async Task<HttpResponseMessage> Run(
     HttpRequestMessage req,
