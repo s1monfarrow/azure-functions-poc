@@ -27,7 +27,7 @@ public static void Run(
 
     log.Info(json);
 
-    //outTable.Add(eve);
+    outTable.Add(eve);
 
     var resourceUrl = string.Format(eventUriTemplate, eve.RowKey);
 
