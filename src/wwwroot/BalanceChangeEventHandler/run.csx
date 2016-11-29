@@ -20,21 +20,12 @@ public static void Run(
 
     var accountResource = http.Get<AccountResource>(eventResource.AccountUri);
 
-    //detailedBusinessEvent = new DetailedBusinessEvent
-    //{
-    //    Timestamp = eventResource.Event.Timestamp,
-    //    AccountId = eventResource.Event.AccountId,
-    //    Amount = eventResource.Event.Amount,
-    //    Balance = accountResource.Balance,
-    //    SourceEventUri = balanceChangeMessage.EventUri
-    //};
-
     detailedBusinessEvent = new DetailedBusinessEvent
     {
-        Timestamp = Current.Offset,
-        AccountId = "123",
-        Amount = 3m,
-        Balance = 0m,
-        SourceEventUri = "bob"
+        Timestamp = eventResource.Event.Timestamp,
+        AccountId = eventResource.Event.AccountId,
+        Amount = eventResource.Event.Amount,
+        Balance = accountResource.Balance,
+        SourceEventUri = balanceChangeMessage.EventUri
     };
 }
