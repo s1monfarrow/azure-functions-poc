@@ -20,7 +20,6 @@ var res = Run(req, "123", table, log).Result;
 // Assert
 fa.Should(res.StatusCode.ToString()).Be(HttpStatusCode.NotFound.ToString());
 
-
 //Arrange
 storage.Add(new BalanceChangedEvent());
 storage.Add(new BalanceChangedEvent());
