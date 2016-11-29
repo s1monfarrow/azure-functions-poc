@@ -2,7 +2,7 @@
     "disabled": false,
   "bindings": [
     {
-      "name": "myQueueItem",
+      "name": "queueItem",
       "type": "queueTrigger",
       "direction": "in",
       "queueName": "staging-event-queue",
