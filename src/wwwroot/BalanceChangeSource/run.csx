@@ -21,7 +21,7 @@ public static void Run(
         RowKey = Current.Guid.ToString()
     };
 
-    outTable.Add(eve);
+    //outTable.Add(eve);
 
     var resourceUrl = string.Format(eventUriTemplate, eve.RowKey);
 
