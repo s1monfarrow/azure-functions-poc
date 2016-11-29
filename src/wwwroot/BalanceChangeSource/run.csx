@@ -23,10 +23,6 @@ public static void Run(
         RowKey = Current.Guid.ToString()
     };
 
-    var json = JsonConvert.SerializeObject(eve);
-
-    log.Info(json);
-
     outTable.Add(eve);
 
     var resourceUrl = string.Format(eventUriTemplate, eve.RowKey);
