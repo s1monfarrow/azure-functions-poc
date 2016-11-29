@@ -1,4 +1,5 @@
 #load "utils/current.csx"
+#r "Microsoft.WindowsAzure.Storage"
 using System;
 using Microsoft.WindowsAzure.Storage.Table;
 

@@ -1,4 +1,5 @@
 #r "Microsoft.WindowsAzure.Storage"
+#r "Newtonsoft.Json"
 #load "../utils/current.csx"
 #load "../shared.csx"
 
@@ -6,6 +7,7 @@ using System;
 using Microsoft.WindowsAzure.Storage.Table;
 using System.Net;
 using System.Collections;
+using Newtonsoft.Json;
 
 public static void Run(
     TimerInfo myTimer, 
@@ -20,6 +22,10 @@ public static void Run(
         PartitionKey = "test",
         RowKey = Current.Guid.ToString()
     };
+
+    var json = JsonConvert.SerializeObject(eve);
+
+    log.Info(json);
 
     //outTable.Add(eve);
 
