@@ -1,9 +1,11 @@
 #r "Newtonsoft.Json"
-#load "../utils/http.csx"
 #load "../utils/current.csx"
 #load "../shared.csx"
 
 using System;
+using Microsoft.WindowsAzure.Storage.Table;
+using System.Net;
+using System.Collections;
 using Newtonsoft.Json;
 
 
@@ -18,10 +20,10 @@ public static void Run(
     //the content of the arriving message
 
     var businessEvent = JsonConvert.DeserializeObject<DetailedBusinessEvent>(queueItem);
+
     outTable.Add(new StagedDetailedBusinessEvent(businessEvent)
     {
         PartitionKey = "Test",
         RowKey = Current.Guid.ToString()
     });
-
 }
