@@ -1,9 +1,10 @@
 #load "utils/current.csx"
 using System;
+using Microsoft.WindowsAzure.Storage.Table;
 
 public static string accountUriTemplate = "http://account/{0}";
 
-public class BalanceChangedEvent
+public class BalanceChangedEvent : TableEntity
 {
     public BalanceChangedEvent()
     {
@@ -39,7 +40,7 @@ public class AccountResource
     public decimal Balance { get; set; }
 }
 
-public class DetailedBusinessEvent
+public class DetailedBusinessEvent : TableEntity
 {
     public DateTimeOffset Timestamp { get; set; }
     public string AccountId { get; set; }
