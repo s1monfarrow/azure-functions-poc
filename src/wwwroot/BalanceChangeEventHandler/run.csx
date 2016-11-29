@@ -14,7 +14,7 @@ public static void Run(
 {
     log.Info($"C# Queue trigger function processed: {queueItem}");
 
-    //var balanceChangeMessage = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
+    var balanceChangeMessage = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
 
     //var eventResource = http.Get<BalanceChangeEventResource>(balanceChangeMessage.EventUri);
 
