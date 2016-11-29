@@ -27,11 +27,7 @@ var res = Run(req, id, table, log).Result;
 fa.Should(res.StatusCode.ToString()).Be(HttpStatusCode.NotFound.ToString());
 
 //Arrange
-storage.Add(new BalanceChangedEvent()
-{
-    PartitionKey = "test",
-    RowKey = Current.Guid.ToString()
-});
+storage.Add(new BalanceChangedEvent());
 
 // Action
 res = Run(req, id, table, log).Result;

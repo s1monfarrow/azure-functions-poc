@@ -15,7 +15,12 @@ public static void Run(
 {
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 
-    var eve = new BalanceChangedEvent();
+    var eve = new BalanceChangedEvent()
+    {
+        PartitionKey = "test",
+        RowKey = Current.Guid.ToString()
+    };
+
     outTable.Add(eve);
 
     var resourceUrl = string.Format(eventUriTemplate, eve.RowKey);
