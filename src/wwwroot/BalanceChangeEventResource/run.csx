@@ -18,7 +18,11 @@ public static async Task<HttpResponseMessage> Run(
         .Where(e => e.PartitionKey == "Test" && e.RowKey == eventid)
         .FirstOrDefault();
     if (eve == null)
-        return await Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound));
+        return await Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound)
+        {
+            Content = new StringContent(string.Format("No event with id = {0}", eventid)),
+            ReasonPhrase = "Event Id Not Found"
+        });
     
     var resource = new BalanceChangeEventResource
     {
