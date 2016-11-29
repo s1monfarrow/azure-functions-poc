@@ -13,6 +13,9 @@ public static async Task<HttpResponseMessage> Run(
 {
     log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
+    foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+        log.Info($"key={de.Key}  value={de.Value}");
+
     //fetch the event
     var eve = inTable
         .Where(e => e.PartitionKey == "test" && e.RowKey == eventid)
