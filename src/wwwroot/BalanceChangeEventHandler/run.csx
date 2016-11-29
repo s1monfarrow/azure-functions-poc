@@ -18,7 +18,7 @@ public static void Run(
 
     var eventResource = http.Get<BalanceChangeEventResource>(balanceChangeMessage.EventUri);
 
-    //var accountResource = http.Get<AccountResource>(eventResource.AccountUri);
+    var accountResource = http.Get<AccountResource>(eventResource.AccountUri);
 
     //detailedBusinessEvent = new DetailedBusinessEvent
     //{
