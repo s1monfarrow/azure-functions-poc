@@ -28,4 +28,6 @@ public static void Run(
     var resourceUrl = string.Format(eventUriTemplate, eve.RowKey);
 
     outQueue = new BalanceChangedEventMessage { EventUri = resourceUrl };
+
+    log.Info($"Event created at : {resourceUrl}");
 }
