@@ -7,7 +7,7 @@
         "methods": [
           "get"
         ],
-        "route": "accounts/{accountid:string}"
+        "route": "accounts/{accountid}"
       },
       {
           "type": "http",
