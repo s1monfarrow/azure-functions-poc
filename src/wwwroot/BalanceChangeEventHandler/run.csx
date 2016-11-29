@@ -15,7 +15,7 @@ public static void Run(
     log.Info($"C# Queue trigger function processed: {queueItem}");
 
     //var balanceChangeMessage = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
-    
+
     //var eventResource = http.Get<BalanceChangeEventResource>(balanceChangeMessage.EventUri);
 
     //var accountResource = http.Get<AccountResource>(eventResource.AccountUri);
@@ -28,4 +28,13 @@ public static void Run(
     //    Balance = accountResource.Balance,
     //    SourceEventUri = balanceChangeMessage.EventUri
     //};
+
+    detailedBusinessEvent = new DetailedBusinessEvent
+    {
+        Timestamp = Current.Offset,
+        AccountId = "123",
+        Amount = 3m,
+        Balance = 0m,
+        SourceEventUri = "bob"
+    };
 }
