@@ -3,7 +3,7 @@
 using System;
 using Microsoft.WindowsAzure.Storage.Table;
 
-public static string accountUriTemplate = "https://datapipe.azurewebsites.net/api/account/{0}";
+public static string accountUriTemplate = "https://datapipe.azurewebsites.net/api/accounts/{0}";
 
 public static string eventUriTemplate = "https://datapipe.azurewebsites.net/api/events/{0}";
 

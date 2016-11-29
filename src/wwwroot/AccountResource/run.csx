@@ -15,7 +15,9 @@ public static async Task<HttpResponseMessage> Run(
     log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 
     //fetch the event
-    var events = inTable.Where(e => e.AccountId == accountid);
+    var events = inTable
+        .Where(e => e.PartitionKey == "test" && e.AccountId == accountid)
+        .ToList();
     if (!events.Any())
         return await Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound));
 
