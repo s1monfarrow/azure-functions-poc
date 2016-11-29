@@ -15,7 +15,7 @@ public static async Task<HttpResponseMessage> Run(
 
     //fetch the event
     var eve = inTable
-        .Where(e => e.PartitionKey == "Test" && e.RowKey == eventid)
+        .Where(e => e.PartitionKey == "test" && e.RowKey == eventid)
         .FirstOrDefault();
     if (eve == null)
         return await Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound)
