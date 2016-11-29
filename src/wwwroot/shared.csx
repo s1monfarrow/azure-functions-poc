@@ -17,11 +17,8 @@ public class BalanceChangedEvent : TableEntity
         PartitionKey = "test";
     }
 
-    public DateTimeOffset Timestamp { get; set; }
     public string AccountId { get; set; }
     public decimal Amount { get; set; }
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
 }
 
 public class BalanceChangedEventMessage
@@ -44,7 +41,6 @@ public class AccountResource
 
 public class DetailedBusinessEvent : TableEntity
 {
-    public DateTimeOffset Timestamp { get; set; }
     public string AccountId { get; set; }
     public decimal Amount { get; set; }
     public decimal Balance { get; set; }
@@ -62,6 +58,6 @@ public class StagedDetailedBusinessEvent : DetailedBusinessEvent
         SourceEventUri = eve.SourceEventUri;
     }
 
-    public string PartitionKey { get; set; }
-    public string RowKey { get; set; }
+    //public string PartitionKey { get; set; }
+    //public string RowKey { get; set; }
 }

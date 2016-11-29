@@ -14,6 +14,8 @@ var table = storage.AsQueryable();
 var req = new HttpRequestMessage();
 req.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
 
+accountUriTemplate = "http://account/{0}";
+
 // Action
 var res = Run(req, "123", table, log).Result;
 
