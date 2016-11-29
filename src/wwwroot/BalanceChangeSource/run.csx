@@ -1,7 +1,11 @@
+#r "Microsoft.WindowsAzure.Storage"
 #load "../utils/current.csx"
 #load "../shared.csx"
 
 using System;
+using Microsoft.WindowsAzure.Storage.Table;
+using System.Net;
+using System.Collections;
 
 public static void Run(
     TimerInfo myTimer, 
