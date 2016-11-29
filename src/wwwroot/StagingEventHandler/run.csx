@@ -21,9 +21,9 @@ public static void Run(
 
     var businessEvent = JsonConvert.DeserializeObject<DetailedBusinessEvent>(queueItem);
 
-    outTable.Add(new StagedDetailedBusinessEvent(businessEvent)
-    {
-        PartitionKey = "Test",
-        RowKey = Current.Guid.ToString()
-    });
+    //outTable.Add(new StagedDetailedBusinessEvent(businessEvent)
+    //{
+    //    PartitionKey = "Test",
+    //    RowKey = Current.Guid.ToString()
+    //});
 }
