@@ -1,3 +1,4 @@
+#r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #load "../utils/current.csx"
 #load "../shared.csx"
@@ -21,9 +22,9 @@ public static void Run(
 
     var businessEvent = JsonConvert.DeserializeObject<DetailedBusinessEvent>(queueItem);
 
-    //outTable.Add(new StagedDetailedBusinessEvent(businessEvent)
-    //{
-    //    PartitionKey = "Test",
-    //    RowKey = Current.Guid.ToString()
-    //});
+    outTable.Add(new StagedDetailedBusinessEvent(businessEvent)
+    {
+        PartitionKey = "Test",
+        RowKey = Current.Guid.ToString()
+    });
 }
