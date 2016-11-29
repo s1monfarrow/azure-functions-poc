@@ -16,7 +16,7 @@ public static void Run(
     var eve = new BalanceChangedEvent();
     outTable.Add(eve);
 
-    var resourceUrl = string.Format(uriTemplate, eve.AccountId);
+    var resourceUrl = string.Format(uriTemplate, eve.RowKey);
 
     outQueue = new BalanceChangedEventMessage { EventUri = resourceUrl };
 }

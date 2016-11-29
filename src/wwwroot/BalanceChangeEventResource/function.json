@@ -7,7 +7,7 @@
         "methods": [
           "get"
         ],
-        "route": "events/{eventid:string}"
+        "route": "events/{eventid:guid}"
       },
       {
           "type": "http",
