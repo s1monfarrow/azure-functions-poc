@@ -17,8 +17,8 @@
       {
         "type": "table",
         "name": "inTable",
-        "tableName": "business-event",
-        "connection": "TABLE_STORAGE_ACCT_APP_SETTING",
+        "tableName": "businessevent",
+        "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
         "direction": "in"
       }
     ],

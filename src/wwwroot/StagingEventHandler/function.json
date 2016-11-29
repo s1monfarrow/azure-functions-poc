@@ -6,13 +6,13 @@
       "type": "queueTrigger",
       "direction": "in",
       "queueName": "staging-event-queue",
-      "connection": "STORAGE_ACCT_APP_SETTING"
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING"
     },
     {
       "type": "table",
       "name": "outTable",
-      "tableName": "staging-event",
-      "connection": "TABLE_STORAGE_ACCT_APP_SETTING",
+      "tableName": "stagingevent",
+      "connection": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
       "direction": "out"
     }
   ]

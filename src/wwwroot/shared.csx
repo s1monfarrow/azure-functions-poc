@@ -7,14 +7,14 @@ public class BalanceChangedEvent
 {
     public BalanceChangedEvent()
     {
-        Timestamp = Current.Time;
+        Timestamp = Current.Offset;
         RowKey = Current.Guid.ToString();
         AccountId = "123";
         Amount = 3m;
         PartitionKey = "test";
     }
 
-    public DateTime Timestamp { get; set; }
+    public DateTimeOffset Timestamp { get; set; }
     public string AccountId { get; set; }
     public decimal Amount { get; set; }
     public string PartitionKey { get; set; }
@@ -41,7 +41,7 @@ public class AccountResource
 
 public class DetailedBusinessEvent
 {
-    public DateTime Timestamp { get; set; }
+    public DateTimeOffset Timestamp { get; set; }
     public string AccountId { get; set; }
     public decimal Amount { get; set; }
     public decimal Balance { get; set; }

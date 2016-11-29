@@ -14,6 +14,11 @@ public class Current
         }
     }
 
+    public static DateTimeOffset Offset
+    {
+        get { return new DateTimeOffset(Time); }
+    }
+
     static Guid? guid;
 
     public static Guid Guid
