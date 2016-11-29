@@ -16,7 +16,7 @@ public static void Run(
 
     var balanceChangeMessage = JsonConvert.DeserializeObject<BalanceChangedEventMessage>(queueItem);
 
-    //var eventResource = http.Get<BalanceChangeEventResource>(balanceChangeMessage.EventUri);
+    var eventResource = http.Get<BalanceChangeEventResource>(balanceChangeMessage.EventUri);
 
     //var accountResource = http.Get<AccountResource>(eventResource.AccountUri);
 
