@@ -14,6 +14,8 @@ Current.Time = new DateTime(2020, 1, 1);
 var storage = new List<BalanceChangedEvent>();
 var table = storage.AsQueryable();
 
+accountUriTemplate = "http://account/{0}";
+
 var req = new HttpRequestMessage();
 req.Properties.Add(HttpPropertyKeys.HttpConfigurationKey, new HttpConfiguration());
 var id = Current.Guid.ToString();

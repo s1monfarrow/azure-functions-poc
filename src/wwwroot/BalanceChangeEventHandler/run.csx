@@ -5,7 +5,7 @@
 using System;
 using Newtonsoft.Json;
 
-static IHttp http = new Http();
+static IHttp http = new FunctionsHttp("DEFAULT_KEY");
 
 public static void Run(
     string queueItem, 

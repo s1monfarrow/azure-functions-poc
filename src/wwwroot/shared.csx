@@ -2,7 +2,9 @@
 using System;
 using Microsoft.WindowsAzure.Storage.Table;
 
-public static string accountUriTemplate = "http://account/{0}";
+public static string accountUriTemplate = "https://datapipe.azurewebsites.net/api/account/{0}";
+
+public static string eventUriTemplate = "https://datapipe.azurewebsites.net/api/events/{0}";
 
 public class BalanceChangedEvent : TableEntity
 {

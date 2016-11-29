@@ -3,8 +3,6 @@
 
 using System;
 
-public static string uriTemplate = "http://localhost/events/{0}";
-
 public static void Run(
     TimerInfo myTimer, 
     ICollector<BalanceChangedEvent> outTable, 
@@ -16,7 +14,7 @@ public static void Run(
     var eve = new BalanceChangedEvent();
     outTable.Add(eve);
 
-    var resourceUrl = string.Format(uriTemplate, eve.RowKey);
+    var resourceUrl = string.Format(eventUriTemplate, eve.RowKey);
 
     outQueue = new BalanceChangedEventMessage { EventUri = resourceUrl };
 }

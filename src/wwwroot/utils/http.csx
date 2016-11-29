@@ -8,6 +8,29 @@ public interface IHttp
 {
     T Get<T>(string url) where T : class, new();
 }
+
+
+public class FunctionsHttp : IHttp
+{
+    string _keyName;
+
+    public FunctionsHttp(string keyName)
+    {
+        _keyName = keyName;
+    }
+
+    public static string GetEnvironmentVariable(string name)
+    {
+        return System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
+    }
+
+    public T Get<T>(string url) where T : class, new()
+    {
+        var h = new Http();
+        return h.Get<T>(url, headers:new Dictionary<string, string> {{ "x-functions-key", GetEnvironmentVariable(_keyName) } });
+    }
+}
+
 public class Http : IHttp
 {
 

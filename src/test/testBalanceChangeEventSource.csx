@@ -8,7 +8,7 @@ var table = MocCollector<BalanceChangedEvent>(storage);
 Current.Guid = Guid.Empty;
 
 BalanceChangedEventMessage message;
-uriTemplate = "http://test/{0}";
+eventUriTemplate = "http://test/{0}";
 
 // Action
 Run(timer, table, out message, log);
